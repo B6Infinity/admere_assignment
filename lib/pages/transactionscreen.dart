@@ -66,6 +66,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     width: wid,
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
                         gradient: SweepGradient(
                           colors: [
                             Colors.blue,
@@ -112,6 +113,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     width: wid,
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
                         gradient: SweepGradient(
                           colors: [
                             Colors.blueGrey,
@@ -158,6 +160,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                     width: wid,
                     child: DecoratedBox(
                       decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
                         gradient: SweepGradient(
                           colors: [
                             Colors.grey,
