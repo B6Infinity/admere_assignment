@@ -13,7 +13,11 @@ class _TransactionScreenState extends State<TransactionScreen> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Scaffold(body: SafeArea(child: Text('ello moppet'))),
+      child: Scaffold(
+        body: SafeArea(
+          child: Text('ello moppet'),
+        ),
+      ),
     );
   }
 }
