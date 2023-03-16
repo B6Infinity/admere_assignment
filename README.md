@@ -1,16 +1,18 @@
 # admere_assignment
 
 Flutter project as assignment for admere.
+`flutter run` to view the app on the emulator or any other device.
 
-## Getting Started
-<!-- 
-This project is a starting point for a Flutter application.
+> **Prerquisite:**`dart` should be installed in the device/virtual environment running the above command.
 
-A few resources to get you started if this is your first Flutter project:
+## Result
+This was the result I came up with.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![](https://github.com/B6Infinity/admere_assignment/blob/master/media/showboat.gif)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference. -->
+This is the gif of the overview. The screen recording can be viewed in the following subdirectory: *admere_assignment/media/recording.mp4*
+ 
+
+## Resources used
+Lottie animations were used from the website https://lottiefiles.com/
+Images were used from the website https://icons8.com/
