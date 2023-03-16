@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:lottie/lottie.dart';
 
 class Money extends StatefulWidget {
   const Money({super.key});
@@ -10,8 +11,22 @@ class Money extends StatefulWidget {
   State<Money> createState() => _MoneyState();
 }
 
-class _MoneyState extends State<Money> {
+class _MoneyState extends State<Money> with TickerProviderStateMixin {
   TextEditingController amountController = TextEditingController();
+  late final AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +58,22 @@ class _MoneyState extends State<Money> {
                 height: 70,
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 201, 201, 201),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: DropdownButton(
-                  underline: SizedBox(),
+                  underline: const SizedBox(),
                   icon: const Icon(Icons.keyboard_arrow_down_rounded),
                   isExpanded: true,
                   items: const [
+                    // This part of the code is a bit crappy for now.
+                    // By the time you are reading this... I would have learned to make this more polished.
                     DropdownMenuItem(
                       child: ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                              'https://img.icons8.com/color/512/mastercard-logo.png'),
+                        ),
                         title: Text('MasterCard'),
                         subtitle: Text('*****5689'),
                       ),
@@ -62,7 +85,7 @@ class _MoneyState extends State<Money> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: 45, bottom: 45, left: 70, right: 70),
+                  top: 30, bottom: 30, left: 70, right: 70),
               child: TextField(
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -77,6 +100,28 @@ class _MoneyState extends State<Money> {
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                 ),
+              ),
+            ),
+            // const SizedBox(height: 100),
+            GestureDetector(
+              onTap: () {
+                // _animationController.pl
+                print('there we go');
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  LottieBuilder.network(
+                    width: 280,
+                    'https://assets3.lottiefiles.com/packages/lf20_wjvwllvm.json',
+                    onLoaded: (composition) {},
+                    repeat: true,
+                  ),
+                  const Text(
+                    'TRANSFER',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
               ),
             ),
           ],
