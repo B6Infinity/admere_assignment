@@ -20,17 +20,63 @@ class _MoneyState extends State<Money> {
         appBar: AppBar(title: const Text('Transfer Amount...')),
         body: Column(
           children: [
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              controller: amountController,
-              textAlign: TextAlign.center,
-              decoration: const InputDecoration(
-                label: Text('Enter Amount'),
-                hintText: '0.00',
-                alignLabelWithHint: true,
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
+            const SizedBox(height: 30),
+            const Center(child: Text('Transferring to')),
+            const SizedBox(height: 10),
+            const CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://i.pinimg.com/736x/78/48/29/7848297c04b1d0f4d927b8b9047d7631.jpg'),
+              radius: 35,
+            ),
+            const SizedBox(height: 10),
+            const Center(
+              child: Text(
+                'Saul',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 40, right: 40, top: 10, bottom: 0),
+              child: Container(
+                height: 70,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 201, 201, 201),
+                ),
+                child: DropdownButton(
+                  underline: SizedBox(),
+                  icon: const Icon(Icons.keyboard_arrow_down_rounded),
+                  isExpanded: true,
+                  items: const [
+                    DropdownMenuItem(
+                      child: ListTile(
+                        title: Text('MasterCard'),
+                        subtitle: Text('*****5689'),
+                      ),
+                    ),
+                  ],
+                  onChanged: (value) {},
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 45, bottom: 45, left: 70, right: 70),
+              child: TextField(
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                controller: amountController,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 40),
+                decoration: const InputDecoration(
+                  prefix: Text('₹'),
+                  suffix: Text('/-'),
+                  hintText: '0.00',
+                  alignLabelWithHint: true,
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                ),
               ),
             ),
           ],
